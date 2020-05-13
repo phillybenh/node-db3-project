@@ -36,10 +36,12 @@ function add(scheme) {
         });
 };
 function addStep(stepData, scheme_id) {
+    stepData.scheme_id = scheme_id;
     return db("steps")
         .insert(stepData, "id")
         .then(res => {
-            console.log(res)
+            // console.log(res)
+            return findSteps(scheme_id);
         });
 };
 
